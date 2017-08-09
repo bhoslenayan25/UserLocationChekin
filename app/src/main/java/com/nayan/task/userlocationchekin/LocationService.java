@@ -1,8 +1,6 @@
 package com.nayan.task.userlocationchekin;
 
-import android.app.NotificationManager;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
@@ -11,6 +9,7 @@ import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 /**
  * Created by nayan on 9/8/17.
@@ -117,10 +116,13 @@ public class LocationService extends Service implements LocationListener {
     @Override
     public void onLocationChanged(Location arg0) {
 
-        NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        Toast.makeText(this,"Latitude: " + latitude + "\n Longitude: " + longitude,Toast.LENGTH_SHORT).show();
+
+     /*   NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);
         Intent intent = null;
 
-        /*intent = new Intent(this, MainActivity.class);
+        intent = new Intent(this, MainActivity.class);
 
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
